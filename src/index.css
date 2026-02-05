@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* Custom hover effects for mobile compatibility */
+/* Custom hover effects with mobile touch support */
+.image-hover-grayscale-scale {
+  filter: grayscale(100%);
+  transform: scale(1);
+  transition: all 0.7s ease;
+}
+
+@media (hover: hover) {
+  .group:hover .image-hover-grayscale-scale {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
+}
+
+.group:active .image-hover-grayscale-scale {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.overlay-hover {
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+}
+
+@media (hover: hover) {
+  .group:hover .overlay-hover {
+    background-color: rgba(234, 88, 12, 0.2);
+  }
+}
+
+.group:active .overlay-hover {
+  background-color: rgba(234, 88, 12, 0.2);
+}
+
+.text-hover-orange {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+@media (hover: hover) {
+  .group:hover .text-hover-orange {
+    color: rgb(234, 88, 12);
+  }
+}
+
+.group:active .text-hover-orange {
+  color: rgb(234, 88, 12);
+}
+
+.opacity-hover {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) {
+  .group:hover .opacity-hover {
+    opacity: 1;
+  }
+}
+
+.group:active .opacity-hover {
+  opacity: 1;
+}
+
+.image-hover-scale {
+  transform: scale(1);
+  transition: transform 0.7s ease;
+}
+
+@media (hover: hover) {
+  .group:hover .image-hover-scale {
+    transform: scale(1.1);
+  }
+}
+
+.group:active .image-hover-scale {
+  transform: scale(1.1);
+}

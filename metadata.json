@@ -1,0 +1,9 @@
+
+{
+  "name": "Artraid Indie Game Studio",
+  "description": "A high-end, animation-rich website for Artraid, an indie game studio, featuring a built-in CMS for game management and hero customization.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
