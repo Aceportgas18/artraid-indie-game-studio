@@ -24,31 +24,6 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent">
-      {/* Background Media */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        {hero.visualType === 'video' && !videoError ? (
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover scale-105"
-            key={hero.visualUrl}
-            onError={() => setVideoError(true)}
-          >
-            <source src={hero.visualUrl} type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            src={hero.fallbackImageUrl || hero.visualUrl}
-            alt="Hero Background"
-            className="h-full w-full object-cover scale-105"
-          />
-        )}
-      </div>
-
       {/* Content */}
       <div className="relative z-20 text-center px-6 max-w-5xl">
         <motion.h1

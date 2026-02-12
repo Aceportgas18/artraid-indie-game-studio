@@ -43,10 +43,10 @@ export const INITIAL_CMS_DATA: CMSData = {
   team: [
     { id: 't1', name: 'MAGESH', role: 'Founder & Creative Lead', imageUrl: '/artraid-assets/Magesh_ArtRaid.png' },
     { id: 't2', name: 'HARINI', role: 'Lead Developer', imageUrl: '/artraid-assets/Harini_ArtRaid.png' },
-    { id: 't3', name: 'KAVIYA', role: 'Art Director', imageUrl: 'https://picsum.photos/seed/sarah/400/400' }
+    { id: 't3', name: 'KAVIYA', role: 'Art Director', imageUrl: '/artraid-assets/Kavya_Creative Head.png' }
   ],
   testimonials: [
-    { id: 'test1', name: 'John Doe', testimonial: 'Artraid\'s games are incredibly immersive and fun. The team\'s passion shines through in every detail.', imageUrl: 'https://picsum.photos/seed/john/400/400' },
-    { id: 'test2', name: 'Jane Smith', testimonial: 'Working with Artraid was a game-changer. Their innovative approach to indie gaming is unmatched.', imageUrl: 'https://picsum.photos/seed/jane/400/400' }
+    { id: 'test1', name: 'Mounika', testimonial: 'Working with this game asset company was such a smooth and rewarding experience. The quality of their assets truly stood out — beautifully designed, highly detailed, and perfectly optimized for game development. Everything integrated seamlessly into my project, which saved me a lot of time.', imageUrl: '/artraid-assets/Female_Testimonial.png' },
+    { id: 'test2', name: 'Robin', testimonial: 'Working with this game asset company has been a great experience from start to finish. The level of detail and craftsmanship in their assets is impressive, and everything was optimized and production-ready. It made integrating them into my project straightforward and efficient.', imageUrl: '/artraid-assets/Male_Testimonial.png' }
   ]
 };

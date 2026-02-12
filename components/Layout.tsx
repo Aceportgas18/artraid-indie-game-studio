@@ -116,7 +116,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
           <div className="flex flex-col space-y-4">
             <h3 className="text-sm font-bold uppercase tracking-widest text-white">Social</h3>
-            <a href="#" className="text-zinc-500 hover:text-orange-600 text-sm transition-colors">LinkedIn</a>
+            <a href="https://www.linkedin.com/company/artraidstudios/" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-orange-600 text-sm transition-colors">LinkedIn</a>
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-zinc-600 text-xs">

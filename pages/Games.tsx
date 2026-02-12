@@ -97,10 +97,10 @@ const Games: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { src: '/artraid-assets/Game_Character_Turnaround-1.jpeg', name: 'Portfolio Image 1', description: 'Company portfolio showcase' },
-                { src: '/artraid-assets/Game_Character_Turnaround-2.jpeg', name: 'Portfolio Image 2', description: 'Company portfolio showcase' },
-                { src: '/artraid-assets/Game_Character_Turnaround-3.jpeg', name: 'Portfolio Image 3', description: 'Company portfolio showcase' },
-                { src: '/artraid-assets/Game_Character_Turnaround-4.jpg', name: 'Portfolio Image 4', description: 'Company portfolio showcase' },
+                { src: '/artraid-assets/Game_Character_Turnaround-4.jpg', name: 'Character Concept 4', description: 'Unique character design for gaming.' },
+                { src: '/artraid-assets/Game_Environment_Day.jpg', name: 'Daytime Environment', description: 'Vibrant daytime game world setting.' },
+                { src: '/artraid-assets/Game_Environment_Night.jpg', name: 'Nighttime Environment', description: 'Atmospheric nighttime game scene.' },
+                { src: '/artraid-assets/Landpage_Artraid.jpg', name: 'Artraid Landing Page', description: 'Landing page artwork for Artraid.' },
               ].map((image, index) => (
                 <div
                   key={index}
