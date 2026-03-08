@@ -92,16 +92,15 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               className="relative group cursor-pointer overflow-hidden"
             >
-              <img
-                src="/artraid-assets/Game_Environment_Night.jpg"
-                alt="Our Studio Night"
-                className="w-full h-auto transition-opacity duration-700 opacity-100 group-hover:opacity-0 group-active:opacity-0"
-              />
-              <img
-                src="/artraid-assets/Game_Environment_Day.jpg"
-                alt="Our Studio Day"
-                className="absolute top-0 left-0 w-full h-auto transition-opacity duration-700 opacity-0 group-hover:opacity-100 group-active:opacity-100"
-              />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto"
+              >
+                <source src="/artraid-assets/Fox.mp4" type="video/mp4" />
+              </video>
             </motion.div>
           </div>
         </div>

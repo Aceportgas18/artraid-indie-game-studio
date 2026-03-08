@@ -43,7 +43,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         style={{ opacity: isVisible ? 1 : 0 }}
       >
         <Link to="/" className="flex items-center space-x-3 text-2xl font-black tracking-tighter group">
-          <img src="/artraid-assets/Logo_01.png" alt="Artraid Logo" className="h-16 w-16" />
+          <img src="/artraid-assets/Logo_IconOnly.png" alt="Artraid Logo" className="h-12 w-auto" />
           <span className="inline-block group-hover:text-orange-600 transition-colors duration-300 text-white">ARTRAID</span>
         </Link>
 

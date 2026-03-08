@@ -97,10 +97,10 @@ const Games: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { src: '/artraid-assets/Game_Character_Turnaround-4.jpg', name: 'Character Concept 4', description: 'Unique character design for gaming.' },
+                { src: '/artraid-assets/Copy of Aboutpage_Artraid.jpg', name: 'About Page Artraid', description: 'About page artwork for Artraid.' },
                 { src: '/artraid-assets/Game_Environment_Day.jpg', name: 'Daytime Environment', description: 'Vibrant daytime game world setting.' },
-                { src: '/artraid-assets/Game_Environment_Night.jpg', name: 'Nighttime Environment', description: 'Atmospheric nighttime game scene.' },
                 { src: '/artraid-assets/Landpage_Artraid.jpg', name: 'Artraid Landing Page', description: 'Landing page artwork for Artraid.' },
+                { src: '/artraid-assets/Game_Character_Turnaround-4.jpg', name: 'Character Concept 4', description: 'Unique character design for gaming.' },
               ].map((image, index) => (
                 <div
                   key={index}
@@ -111,11 +111,6 @@ const Games: React.FC = () => {
                     alt={image.name}
                     className="w-full h-full object-contain image-hover-grayscale-scale"
                   />
-                  <div className="absolute inset-0 overlay-hover" />
-                  <div className="absolute inset-0 opacity-hover flex flex-col justify-end p-4">
-                    <p className="text-white text-sm font-black tracking-tighter uppercase">{image.name}</p>
-                    <p className="text-zinc-400 text-[10px] font-medium leading-relaxed">{image.description}</p>
-                  </div>
                 </div>
               ))}
             </div>

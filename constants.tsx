@@ -11,13 +11,24 @@ export const INITIAL_CMS_DATA: CMSData = {
   games: [
     {
       id: '1',
-      title: 'Neon Odyssey',
-      description: 'A fast-paced synthwave racing adventure through a crumbling digital dimension.',
-      imageUrl: 'https://picsum.photos/seed/neon/800/600',
+      title: 'Flash',
+      description: 'Race through three unique islands and conquer the Endless Land in Flash!, a fast-paced 3D runner where speed and reflexes are everything. Dodge obstacles, sprint across stunning environments, and see how far you can run in the ultimate test of speed!',
+      imageUrl: '/artraid-assets/Flash_GameIcon.jpg',
       status: GameStatus.LIVE,
       links: {
         steam: 'https://store.steampowered.com',
         web: 'https://artraid.com/neon-odyssey'
+      }
+    },
+    {
+      id: '3',
+      title: 'RopeRush',
+      description: 'Help the character grab what they need in Rope Rush, a fun puzzle game where you cut ropes at the right moment to guide the hanging object to them. Think fast, slice smart, and solve clever rope puzzles to make sure the item safely reaches the character!',
+      imageUrl: '/artraid-assets/Logo_Roperush.jpg',
+      status: GameStatus.LIVE,
+      links: {
+        playStore: 'https://play.google.com',
+        appStore: 'https://apple.com/app-store'
       }
     },
     {
@@ -27,22 +38,11 @@ export const INITIAL_CMS_DATA: CMSData = {
       imageUrl: 'https://picsum.photos/seed/void/800/600',
       status: GameStatus.COMING_SOON,
       links: {}
-    },
-    {
-      id: '3',
-      title: 'Pixel Punks',
-      description: 'The ultimate 2D brawler with a deep customization system and chaotic multiplayer.',
-      imageUrl: 'https://picsum.photos/seed/punk/800/600',
-      status: GameStatus.LIVE,
-      links: {
-        playStore: 'https://play.google.com',
-        appStore: 'https://apple.com/app-store'
-      }
     }
   ],
   team: [
-    { id: 't1', name: 'MAGESH', role: 'Founder & Creative Lead', imageUrl: '/artraid-assets/Magesh_ArtRaid.png' },
-    { id: 't2', name: 'HARINI', role: 'Lead Developer', imageUrl: '/artraid-assets/Harini_ArtRaid.png' },
+    { id: 't1', name: 'MAGESH', role: 'Founder', imageUrl: '/artraid-assets/Magesh_ArtRaid.png' },
+    { id: 't2', name: 'HARINI', role: 'Co-Founder & Art Director', imageUrl: '/artraid-assets/Harini_ArtRaid.png' },
     { id: 't3', name: 'KAVIYA', role: 'Art Director', imageUrl: '/artraid-assets/Kavya_Creative Head.png' }
   ],
   testimonials: [
