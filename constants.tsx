@@ -33,9 +33,9 @@ export const INITIAL_CMS_DATA: CMSData = {
     },
     {
       id: '2',
-      title: 'Void Weaver',
-      description: 'Strategic puzzle solving where you manipulate gravity and time to escape the abyss.',
-      imageUrl: 'https://picsum.photos/seed/void/800/600',
+      title: 'More Worlds on the Horizon',
+      description: 'Great stories are never told all at once. While you explore the experiences already available, our team is quietly crafting new adventures behind the scenes. Stay connected and keep an eye on this space—fresh worlds, bold ideas, and unforgettable gameplay moments are on their way. The journey has only just begun.',
+      imageUrl: 'https://i.fbcd.co/products/resized/resized-1500-1000/c-1000-designbundle-game-background-game-05-02-08-5e3e1bc9ab59f291ad2699895a675f455452ef08af754a828c3b840ea3ff4bb3.webp',
       status: GameStatus.COMING_SOON,
       links: {}
     }
@@ -43,7 +43,7 @@ export const INITIAL_CMS_DATA: CMSData = {
   team: [
     { id: 't1', name: 'MAGESH', role: 'Founder', imageUrl: '/artraid-assets/Magesh_ArtRaid.png' },
     { id: 't2', name: 'HARINI', role: 'Co-Founder & Art Director', imageUrl: '/artraid-assets/Harini_ArtRaid.png' },
-    { id: 't3', name: 'KAVIYA', role: 'Art Director', imageUrl: '/artraid-assets/Kavya_Creative Head.png' }
+    { id: 't3', name: 'KAVIYA', role: '2D Artist', imageUrl: '/artraid-assets/Kavya_Creative Head.png' }
   ],
   testimonials: [
     { id: 'test1', name: 'Mounika', testimonial: 'Working with this game asset company was such a smooth and rewarding experience. The quality of their assets truly stood out — beautifully designed, highly detailed, and perfectly optimized for game development. Everything integrated seamlessly into my project, which saved me a lot of time.', imageUrl: '/artraid-assets/Female_Testimonial.png' },

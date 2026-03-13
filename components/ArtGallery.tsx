@@ -19,7 +19,7 @@ const ArtGallery: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 text-center text-white">
-          Art Gallery
+          Collections
         </h2>
         <p className="text-zinc-500 text-center text-sm mb-16 max-w-2xl mx-auto">
           Discover our artistic vision through captivating environments and character designs.
@@ -101,6 +101,25 @@ const ArtGallery: React.FC = () => {
               <p className="text-zinc-400 text-xs">{artImages[3].description}</p>
             </div>
           </motion.div>
+           <motion.div
+                         initial={{ opacity: 0, scale: 0.95 }}
+                         whileInView={{ opacity: 1, scale: 1 }}
+                         transition={{ delay: 0.4, duration: 0.6 }}
+                         className="md:col-span-4 relative group cursor-pointer rounded-2xl overflow-hidden"
+                       
+                        viewport={{ once: true }}
+                        
+                      >
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-auto"
+                        >
+                          <source src="/artraid-assets/Fox.mp4" type="video/mp4" />
+                        </video>
+                      </motion.div>
         </div>
       </div>
     </motion.div>
