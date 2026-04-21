@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
-/* Prevent white flash on overscroll / mobile rubber-band and ensure the
-   dark canvas background is always visible even before JS hydrates. */
-html,
-body,
-#root {
+/* html background = the viewport/overscroll background.
+   Setting it to black prevents the white flash during iOS rubber-band
+   scroll and before JS hydrates, while keeping body transparent so the
+   fixed canvas (z-index: -1) remains visible through the body layer. */
+html {
   background-color: #000000;
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: transparent;
   overscroll-behavior: none;
 }
 
