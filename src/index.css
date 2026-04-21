@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Prevent white flash on overscroll / mobile rubber-band and ensure the
+   dark canvas background is always visible even before JS hydrates. */
+html,
+body,
+#root {
+  background-color: #000000;
+  overscroll-behavior: none;
+}
+
 /* FIXED: Define Inter as the primary font via Tailwind v4 @theme token.
    This overrides Tailwind's default system-font stack so the same typeface
    renders cross-device instead of falling back to SF Pro / Roboto / Segoe UI. */

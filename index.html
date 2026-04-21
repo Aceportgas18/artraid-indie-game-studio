@@ -63,8 +63,10 @@
       ]
     }
     </script>
-  </head>
-  <body>
+  <!-- Inline critical background to prevent white flash before CSS loads -->
+  <style>html,body,#root{background:#000;overscroll-behavior:none}</style>
+</head>
+<body style="background:#000">
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
 

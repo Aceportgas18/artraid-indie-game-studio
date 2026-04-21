@@ -382,15 +382,38 @@ const SpaceBackground: React.FC = () => {
             animationFrameId = requestAnimationFrame(animate);
         };
 
-        window.addEventListener('resize', init);
+        // On mobile, the browser address-bar collapsing constantly changes
+        // window.innerHeight by a few pixels.  Re-running init() on every such
+        // micro-resize clears the canvas for one frame and causes a black/white
+        // flash.  We debounce and only actually reinitialise when the width
+        // changes (orientation flip) or when the height delta is large (> 150 px).
+        let lastWidth = window.innerWidth;
+        let lastHeight = window.innerHeight;
+        let resizeTimer: ReturnType<typeof setTimeout>;
+        const handleResize = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const newWidth = window.innerWidth;
+                const newHeight = window.innerHeight;
+                const heightDelta = Math.abs(newHeight - lastHeight);
+                if (newWidth !== lastWidth || heightDelta > 150) {
+                    lastWidth = newWidth;
+                    lastHeight = newHeight;
+                    init();
+                }
+            }, 100);
+        };
+
+        window.addEventListener('resize', handleResize);
         window.addEventListener('mousemove', handleMouseMove);
         init();
         animate();
 
         return () => {
-            window.removeEventListener('resize', init);
+            window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
             cancelAnimationFrame(animationFrameId);
+            clearTimeout(resizeTimer);
         };
     }, []);
 
