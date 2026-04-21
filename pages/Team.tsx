@@ -48,6 +48,7 @@ const Team: React.FC = () => {
                 <img
                   src={member.imageUrl}
                   alt={member.name}
+                  loading="lazy"
                   className="w-full h-full object-cover image-hover-grayscale-scale"
                 />
                 <div className="absolute inset-0 overlay-hover" />
@@ -81,6 +82,7 @@ const Team: React.FC = () => {
                   <img
                     src={testimonial.imageUrl}
                     alt={testimonial.name}
+                    loading="lazy"
                     className="w-full h-full object-cover image-hover-grayscale-scale"
                   />
                   <div className="absolute inset-0 overlay-hover" />

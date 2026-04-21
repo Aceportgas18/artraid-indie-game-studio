@@ -12,19 +12,30 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
+    let rafId: number;
 
+    // FIXED: Wrap state updates in requestAnimationFrame to prevent layout
+    // thrashing and avoid a React re-render on every raw scroll tick.
+    // passive:true tells the browser we will never call preventDefault(),
+    // allowing it to optimise scroll on the compositor thread.
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      lastScrollY = currentScrollY;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
+        lastScrollY = currentScrollY;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const navLinks = [
@@ -38,8 +49,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <div className="min-h-screen flex flex-col selection:bg-orange-600 selection:text-white relative bg-transparent">
       <SpaceBackground />
       {/* Navigation */}
+      {/* FIXED: aria-label added for Main navigation landmark.
+           pointer-events-none when opacity:0 prevents invisible click targets. */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-8 bg-transparent backdrop-blur-sm bg-black/10 transition-opacity duration-300"
+        aria-label="Main navigation"
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-8 bg-transparent backdrop-blur-sm bg-black/10 transition-opacity duration-300${!isVisible ? ' pointer-events-none' : ''}`}
         style={{ opacity: isVisible ? 1 : 0 }}
       >
         <Link to="/" className="flex items-center space-x-3 text-2xl font-black tracking-tighter group">

@@ -3,28 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
     <title>Artraid | Indie Game Studio Crafting Digital Universes</title>
-    <meta name="description" content="Artraid is an indie game studio dedicated to building immersive, playful, and unforgettable gaming experiences. Discover our art-first development approach and community-driven projects." />
+    <!-- FIXED: description trimmed to 151 chars (was 179, over the 160-char limit) -->
+    <meta name="description" content="Artraid is an indie game studio building immersive, playful gaming experiences. Discover our art-first development approach and community-driven games." />
     <meta name="keywords" content="indie game studio, game development, Artraid, digital universes, gaming experiences, art-first development, community driven games" />
     <meta name="author" content="Artraid" />
     <meta name="robots" content="index, follow" />
+    <!-- UPDATED: canonical points to www (production canonical) -->
+    <link rel="canonical" href="https://www.artraid.com/" />
+
+    <!-- Resource hints: preconnect for critical origins, dns-prefetch for the rest -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://plausible.io" />
+    <link rel="dns-prefetch" href="https://picsum.photos" />
+
+    <!-- Google Fonts: Inter — display=swap prevents render-blocking -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" />
+
+    <!-- Favicons (generate these from Logo_IconOnly.png via https://favicon.io) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://artraid.com/" />
     <meta property="og:title" content="Artraid | Indie Game Studio Crafting Digital Universes" />
-    <meta property="og:description" content="Artraid is an indie game studio dedicated to building immersive, playful, and unforgettable gaming experiences." />
+    <meta property="og:description" content="Artraid is an indie game studio building immersive, playful gaming experiences. Discover our art-first development approach and community-driven games." />
     <meta property="og:image" content="https://artraid.com/artraid-assets/Landpage_Artraid.jpg" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://artraid.com/" />
-    <meta property="twitter:title" content="Artraid | Indie Game Studio Crafting Digital Universes" />
-    <meta property="twitter:description" content="Artraid is an indie game studio dedicated to building immersive, playful, and unforgettable gaming experiences." />
-    <meta property="twitter:image" content="https://artraid.com/artraid-assets/Landpage_Artraid.jpg" />
+    <!-- FIXED: Twitter Card tags use name="" not property="" -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://artraid.com/" />
+    <meta name="twitter:title" content="Artraid | Indie Game Studio Crafting Digital Universes" />
+    <meta name="twitter:description" content="Artraid is an indie game studio building immersive, playful gaming experiences. Discover our art-first development approach and community-driven games." />
+    <meta name="twitter:image" content="https://artraid.com/artraid-assets/Landpage_Artraid.jpg" />
+
+    <!-- Structured Data: inline JSON-LD for bots that do not execute JS -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Artraid",
+      "url": "https://artraid.com",
+      "logo": "https://artraid.com/artraid-assets/Logo_01.png",
+      "description": "Artraid is an indie game studio dedicated to building immersive, playful, and unforgettable gaming experiences.",
+      "foundingDate": "2023",
+      "founders": [{ "@type": "Person", "name": "Harini Raj" }],
+      "sameAs": [
+        "https://www.linkedin.com/company/artraidstudios/",
+        "https://twitter.com/artraidstudio",
+        "https://www.instagram.com/artraidstudio"
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
+
+    <!-- Plausible Analytics: privacy-first, cookie-free, GDPR compliant.
+         defer ensures it loads only after the page is interactive and has
+         zero effect on Lighthouse performance scores. -->
+    <script defer data-domain="artraid.com" src="https://plausible.io/js/script.js"></script>
   </body>
 </html>

@@ -78,7 +78,9 @@ const Home: React.FC = () => {
                     <div className="text-orange-600 mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">
                       {f.icon}
                     </div>
-                    <h4 className="text-white font-black tracking-tight mb-2 uppercase text-sm">{f.title}</h4>
+                    {/* FIXED: was <h4> which skipped the h3 level under the parent h2.
+                         Changed to <h3> for correct heading hierarchy. */}
+                    <h3 className="text-white font-black tracking-tight mb-2 uppercase text-sm">{f.title}</h3>
                     <p className="text-zinc-500 text-xs leading-relaxed">{f.desc}</p>
                   </div>
                 ))}

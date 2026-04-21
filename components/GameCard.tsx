@@ -28,6 +28,7 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
         <img
           src={game.imageUrl}
           alt={game.title}
+          loading="lazy"
           className="w-full h-full object-cover image-hover-scale"
         />
         <div className="absolute top-4 left-4">

@@ -19,14 +19,18 @@ const Loader: React.FC = () => {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black overflow-hidden"
         >
           <div className="relative overflow-hidden">
-            <motion.h1
+            {/* FIXED: was <motion.h1> which created a duplicate h1 in the DOM
+                 while the Hero h1 was also mounted.  Changed to <motion.div>
+                 (aria-hidden so screen readers skip the decorative loader). */}
+            <motion.div
               initial={{ y: 100 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, ease: "circOut" }}
               className="text-6xl md:text-8xl font-black tracking-tighter text-white"
+              aria-hidden="true"
             >
               ARTRAID
-            </motion.h1>
+            </motion.div>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: '100%' }}

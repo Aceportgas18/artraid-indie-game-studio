@@ -1,0 +1,107 @@
+# netlify.toml
+# Artraid Indie Game Studio — Netlify deployment configuration
+# https://www.artraid.com
+
+# ─── Build settings ───────────────────────────────────────────────────────────
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ─── Redirects (order matters — most specific rules first) ────────────────────
+
+# 1. www canonical: redirect bare domain → www.artraid.com
+[[redirects]]
+  from   = "https://artraid.com/*"
+  to     = "https://www.artraid.com/:splat"
+  status = 301
+  force  = true
+
+# 2. SPA catch-all: React HashRouter serves all routes from index.html.
+#    This also handles direct deep-links such as /games → index.html (then
+#    the React app redirects client-side to /#/games).
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# ─── Cache-control headers ────────────────────────────────────────────────────
+
+# Vite emits content-hashed filenames (/assets/index-[hash].js) so these are
+# safe for a 1-year immutable cache — browsers will never serve stale assets.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Game art / media in the public folder — 7-day cache with background revalidation.
+[[headers]]
+  for = "/artraid-assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+# WebP variants (generated separately) — same as originals.
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+# Favicon & manifest — short cache so they can be updated without a full deploy.
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/favicon*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/apple-touch-icon*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# HTML — never cache so users always receive the latest app shell.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# ─── Security + performance headers (applied to every request) ────────────────
+#
+# CSP audit — all external sources present in the codebase:
+#   fonts.googleapis.com / fonts.gstatic.com  → Google Fonts (Inter)
+#   plausible.io                               → Analytics (script + beacon)
+#   picsum.photos                              → Placeholder gallery images
+#   i.fbcd.co                                  → Coming-soon game image
+#
+# style-src 'unsafe-inline' is intentionally kept because Framer Motion
+# injects inline styles at runtime for every animation.  A nonce-based
+# approach would require SSR; this is the correct trade-off for a static SPA.
+#
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Frame-Options           = "DENY"
+    X-Content-Type-Options    = "nosniff"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy   = """
+      default-src 'self';
+      script-src 'self' https://plausible.io;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https://picsum.photos https://i.fbcd.co;
+      media-src 'self';
+      connect-src 'self' https://plausible.io;
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self'
+    """
+
+# Netlify automatically negotiates Brotli compression for all text assets —
+# no explicit configuration required.

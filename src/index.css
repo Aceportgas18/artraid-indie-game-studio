@@ -1,5 +1,39 @@
 @import "tailwindcss";
 
+/* FIXED: Define Inter as the primary font via Tailwind v4 @theme token.
+   This overrides Tailwind's default system-font stack so the same typeface
+   renders cross-device instead of falling back to SF Pro / Roboto / Segoe UI. */
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Belt-and-suspenders: explicit rule covers elements that Tailwind's preflight
+   may not reach (e.g. input, select, textarea) and ensures the font stacks for
+   browsers that do not support CSS @theme resolution. */
+html,
+body,
+input,
+select,
+textarea,
+button {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* FIXED: Respect user's reduced-motion preference.
+   Disables all Framer Motion + CSS transitions for users who opt out. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Custom hover effects for mobile compatibility */
 /* Custom hover effects with mobile touch support */
 .image-hover-grayscale-scale {

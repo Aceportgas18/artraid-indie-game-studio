@@ -49,10 +49,14 @@ const Games: React.FC = () => {
         >
           OUR GAMES
         </motion.h1>
+        {/* FIXED: was animate={{ width: 100 }} which animates the layout
+             property 'width', forcing a full reflow on every frame.
+             Replaced with scaleX (compositor-only, zero reflow). */}
         <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: 100 }}
-          className="h-1 bg-white mx-auto"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          style={{ transformOrigin: 'center' }}
+          className="h-1 bg-white w-[100px] mx-auto"
         />
       </section>
 
@@ -109,6 +113,7 @@ const Games: React.FC = () => {
                   <img
                     src={image.src}
                     alt={image.name}
+                    loading="lazy"
                     className="w-full h-full object-contain image-hover-grayscale-scale"
                   />
                 </div>

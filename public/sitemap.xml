@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap for https://www.artraid.com
+  Generated: 2026-04-21
+
+  NOTE — HashRouter limitation:
+  This site uses React HashRouter, which means all routes share the server path
+  "/" (the hash fragment is purely client-side). Google treats /#/games and / as
+  the same URL. The pages below are listed with their clean paths because
+  netlify.toml rewrites them all to index.html — Googlebot will receive the correct
+  React-rendered content. However, for maximum SEO benefit consider migrating from
+  HashRouter to BrowserRouter (no changes to component logic; only App.tsx routing
+  import changes).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.artraid.com/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.artraid.com/games</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.artraid.com/team</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.artraid.com/contact</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

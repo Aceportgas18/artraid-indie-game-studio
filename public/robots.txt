@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block server-side/private paths
+Disallow: /functions/
+Disallow: /.env
+Disallow: /.env.local
+Disallow: /node_modules/
+
+Sitemap: https://www.artraid.com/sitemap.xml

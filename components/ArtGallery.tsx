@@ -28,15 +28,19 @@ const ArtGallery: React.FC = () => {
         {/* Elegant Asymmetric Masonry Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[200px]">
           {/* Large Featured - Studio Vision (spans 8 columns, 2 rows) */}
+          {/* FIXED: viewport={{ once: true }} added to items 1-4 — without it
+               they re-animate every time the user scrolls past them. */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.6 }}
+            viewport={{ once: true }}
             className="md:col-span-8 md:row-span-2 relative group cursor-pointer rounded-2xl overflow-hidden"
           >
             <img
               src={artImages[0].src}
               alt={artImages[0].alt}
+              loading="lazy"
               className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
@@ -51,11 +55,13 @@ const ArtGallery: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
             className="md:col-span-4 relative group cursor-pointer rounded-2xl overflow-hidden"
           >
             <img
               src={artImages[1].src}
               alt={artImages[1].alt}
+              loading="lazy"
               className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
@@ -70,11 +76,13 @@ const ArtGallery: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
+            viewport={{ once: true }}
             className="md:col-span-4 relative group cursor-pointer rounded-2xl overflow-hidden"
           >
             <img
               src={artImages[2].src}
               alt={artImages[2].alt}
+              loading="lazy"
               className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
@@ -88,11 +96,13 @@ const ArtGallery: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
+            viewport={{ once: true }}
             className="md:col-span-4 relative group cursor-pointer rounded-2xl overflow-hidden"
           >
             <img
               src={artImages[3].src}
               alt={artImages[3].alt}
+              loading="lazy"
               className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
